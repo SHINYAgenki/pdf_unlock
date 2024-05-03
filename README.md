@@ -9,8 +9,10 @@
 - Python3 以降
 - PyPDF2 ライブラリ
 
-PyPDF2は以下のコマンドでインストールできます:
+PyPDF2は以下のいずれかのコマンドでインストールできます:
 
 ```bash
 pip3 install PyPDF2
 pip install PyPDF2
+
+sss
