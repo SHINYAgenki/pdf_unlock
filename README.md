@@ -11,8 +11,12 @@
 
 PyPDF2は以下のいずれかのコマンドでインストールできます:
 
-```bash
+```
 pip3 install PyPDF2
+```
+または
+```
 pip install PyPDF2
+```
 
-sss
+
