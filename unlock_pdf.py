@@ -13,8 +13,7 @@ def unlock_pdf(input_path, output_dir, password):
         # PDFのロックを解除
         if reader.is_encrypted:
             if reader.decrypt(password) == 0:
-                print(f"Failed to decrypt {input_path}.")
-                return  # パスワードが間違っている場合は次のファイルに進む
+                raise ValueError("Incorrect password or unable to decrypt PDF.")
         
         # 新しいPDFファイルとして保存
         writer = PyPDF2.PdfWriter()
@@ -23,20 +22,12 @@ def unlock_pdf(input_path, output_dir, password):
         
         with open(output_path, "wb") as outfile:
             writer.write(outfile)
-        print(f"Unlocked {input_path} saved to {output_path}")
-
-def unlock_all_pdfs(lock_dir, unlock_dir, password):
-    # lock_dir内のすべてのPDFファイルを見つける
-    for file in os.listdir(lock_dir):
-        if file.endswith(".pdf"):
-            input_path = os.path.join(lock_dir, file)
-            unlock_pdf(input_path, unlock_dir, password)
 
 if __name__ == "__main__":
     if len(sys.argv) != 4:
-        print("Usage: python unlock_pdf.py lock_dir unlock_dir password")
+        print("Usage: python unlock_pdf.py input_path output_dir password")
     else:
-        lock_dir = sys.argv[1]
-        unlock_dir = sys.argv[2]
+        input_path = sys.argv[1]
+        output_dir = sys.argv[2]
         password = sys.argv[3]
-        unlock_all_pdfs(lock_dir, unlock_dir, password)
+        unlock_pdf(input_path, output_dir, password)
