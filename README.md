@@ -25,7 +25,8 @@ pip install PyPDF2
 以下のように実行できます。
 
 ```
-python3 unlock_pdf.py ロックされたPDFのパス 保存したいディレクト パスワード
+python3 unlock_pdf.py /path/to/lockPDF /path/to/store-directory your_password
+
 ```
 
 
