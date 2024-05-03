@@ -19,25 +19,29 @@ pip3 install PyPDF2
 pip install PyPDF2
 ```
 
-# Directory Structure
+## Directory Structure
 
 以下に、プロジェクトのディレクトリ構成を示します
+```
 /project-root # プロジェクトのルートディレクトリ
-├── lockPDF # ロックされたPDFファイルが保存されるディレクトリ
+├── lockPDF # ここにアンロックしたいPDFを入れる
 ├── unlockPDF # 解除されたPDFファイルが保存されるディレクトリ
 ├── unlock_pdf.py # メインスクリプトファイル
 └── README.md # プロジェクトの説明、使い方が記載されたドキュメント
+```
 
 lockPDFとunlockPDFは各自で作成してください
 
-## Description
+##実行例
 
-- `lockPDF/`: このフォルダには、ロックされたPDFファイルが格納されます。スクリプトはここからファイルを読み込み、解除を試みます。
-- `unlockPDF/`: ロックが解除されたPDFファイルは、このフォルダに保存されます。解除が成功した各ファイルはここに移動されます。
-- `unlock_pdf.py`: このPythonスクリプトは、PDFファイルのロックを解除するための主要な処理を行います。コマンドラインから引数を受け取り、指定された操作を実行します。
-- `README.md`: プロジェクトの概要、ディレクトリ構成、セットアップ手順、および使用方法について説明しています。
+以下のように実行できます。
 
-この構成はプロジェクトの簡潔さと管理のしやすさを保つために設計されています。
+```
+python3 unlock_pdf.py lockPDF unlockPDF <password>
+```
+
+パスワードは開きたいPDFファイルを引数で入れる
+
 
 
 
